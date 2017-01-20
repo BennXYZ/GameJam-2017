@@ -19,6 +19,10 @@ public class TriggerLightAllColors : MonoBehaviour
     [SerializeField]
     Light pointLight;
 
+
+    [SerializeField]
+    AudioSource impulse;
+
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +42,11 @@ public class TriggerLightAllColors : MonoBehaviour
             pointLight.color = Color.green;
         }
 
-        if (Input.GetButtonDown("Fire1") && isLighting == false && isUnLighting == false) isLighting = true;
+        if (Input.GetButtonDown("Fire1") && isLighting == false && isUnLighting == false)
+        {
+            isLighting = true;
+            impulse.Play();
+        }
 
         if (isLighting)
         {
