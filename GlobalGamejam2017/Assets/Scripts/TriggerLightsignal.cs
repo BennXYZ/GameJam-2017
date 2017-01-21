@@ -50,8 +50,6 @@ public class TriggerLightsignal : MonoBehaviour {
         
         if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueLightTimer <= 0)
         {
-
-            PlayerSounds[0].Play();
             BlueLightTimer = BlueLightCooldown;
             seeingEnvironmentSphere.transform.position = gameObject.transform.position;
             seeingEnvironmentSphereScript.Reset();
