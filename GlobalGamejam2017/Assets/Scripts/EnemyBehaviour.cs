@@ -4,26 +4,23 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class EnemyBehaviour : MonoBehaviour {
-
-    [SerializeField]
+    
     Transform playerTransform;
 
     [SerializeField]
     float speed;
-
     [SerializeField]
     float distanceToPlayer;
 
-    [SerializeField]
-    AudioSource impulse;
-	
-	// Update is called once per frame
+
+    private void Start()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+    
+    
 	void Update ()
     {
-		if(Vector3.Distance(transform.position, playerTransform.position) > distanceToPlayer)
-        {
-            transform.LookAt(playerTransform);
-            transform.Translate(-(transform.forward * speed));
-        }
-	}
+        transform.LookAt(playerTransform);
+    }
 }
