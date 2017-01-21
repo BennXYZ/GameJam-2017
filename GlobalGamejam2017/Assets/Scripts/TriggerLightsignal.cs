@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< Updated upstream
-=======
 using XInputDotNetPure;
->>>>>>> Stashed changes
+
 
 public class TriggerLightsignal : MonoBehaviour {
 
@@ -52,11 +50,9 @@ public class TriggerLightsignal : MonoBehaviour {
         
         if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueLightTimer <= 0)
         {
-<<<<<<< Updated upstream
-=======
+
             PlayerSounds[0].Play();
             BlueLightTimer = BlueLightCooldown;
->>>>>>> Stashed changes
             seeingEnvironmentSphere.transform.position = gameObject.transform.position;
             seeingEnvironmentSphereScript.Reset();
         }
@@ -74,12 +70,6 @@ public class TriggerLightsignal : MonoBehaviour {
             seeingEnemiesSphereScript.transform.position = gameObject.transform.position;
             seeingEnemiesSphereScript.Reset();
         }
-
-
-<<<<<<< Updated upstream
-        
-	}
-=======
 
 
     }
@@ -102,5 +92,4 @@ public class TriggerLightsignal : MonoBehaviour {
         }
 
     }
->>>>>>> Stashed changes
 }
