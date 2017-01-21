@@ -21,6 +21,10 @@ public class LightSignal : MonoBehaviour {
     [Range(0, 200)]
     public float maxDepth = 0;
 
+    [SerializeField]
+    [Range(0, 1)]
+    public float sizeOfBorder = 0;
+
     private float startSize;
     public float intensity;
 
@@ -48,6 +52,8 @@ public class LightSignal : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (Input.GetKeyDown(KeyCode.P))
+            Reset();
         if (!stopIncreasing)
             UpdateGrow();
         if (intensity <= 0)
@@ -57,6 +63,6 @@ public class LightSignal : MonoBehaviour {
     private void UpdateGrow()
     {
         intensity -= lossPerOverTime;
-        transform.localScale = transform.localScale * 1 / (1 - growPerOverTime);
+        transform.localScale = transform.localScale * 1 / (1 - growPerOverTime * intensity * 5);
     }
 }

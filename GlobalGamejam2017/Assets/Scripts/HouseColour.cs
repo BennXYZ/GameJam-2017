@@ -20,6 +20,7 @@ public class HouseColour : MonoBehaviour
     Color[] colors;
     float[] intensities;
     List<int> triggeredVerticies;
+    private bool atSphereRange;
     SphereCollider seeingSphere;
     GameObject sphere;
     LightSignal sphereScript;
@@ -93,9 +94,10 @@ public class HouseColour : MonoBehaviour
     {
         for (int i = 0; i < vertices.Length; i++)
         {
-            if (seeingSphere.bounds.Contains(transform.rotation * vertices[i] + transform.position) && !triggeredVerticies.Contains(i) && (transform.rotation * vertices[i] + transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
+            if (seeingSphere.transform.localScale.x > Vector3.Distance((transform.rotation * vertices[i] + transform.position), seeingSphere.transform.position) &&
+                seeingSphere.transform.localScale.x * sphereScript.sizeOfBorder < Vector3.Distance((transform.rotation * vertices[i] + transform.position), seeingSphere.transform.position)
+                && (transform.rotation * vertices[i] + transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
             {
-                triggeredVerticies.Add(i);
                 switch (ReactingSphere)
                 {
                     case SeeingSpheres.SeeEnvironmentSphere:
