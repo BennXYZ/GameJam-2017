@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: b094e4845bbbdb44296f30410d4037c3
+guid: 8d76b048472f81342baf882e9e93ba8f
+timeCreated: 1485011543
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -7,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Hedra001
+    4300000: StoneWall
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

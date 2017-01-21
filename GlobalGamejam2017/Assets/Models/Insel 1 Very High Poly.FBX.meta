@@ -1,5 +1,12 @@
 fileFormatVersion: 2
-guid: b094e4845bbbdb44296f30410d4037c3
+<<<<<<< HEAD
+guid: 52794d8424e666940a659b223ea97996
+timeCreated: 1485006771
+=======
+guid: e8fd5c392b176b749a65ae507b202494
+timeCreated: 1485006970
+>>>>>>> master
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -7,7 +14,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Hedra001
+    4300000: Box001
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +41,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

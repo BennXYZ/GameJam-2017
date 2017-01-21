@@ -4,7 +4,7 @@ using UnityEngine;
 using XInputDotNetPure;
 
 
-public class TriggerLightsignal : MonoBehaviour {
+public class Triggersignal : MonoBehaviour {
 
     GameObject seeingEnvironmentSphere;
     GameObject seeingEnemiesSphere;
@@ -48,22 +48,24 @@ public class TriggerLightsignal : MonoBehaviour {
 	void Update () {
         UpdateTimers();
         
-        if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueLightTimer <= 0)
+        if ((GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueLightTimer <= 0) || Input.GetButtonDown("Blue"))
         {
+
+            //PlayerSounds[0].Play();
             BlueLightTimer = BlueLightCooldown;
             seeingEnvironmentSphere.transform.position = gameObject.transform.position;
             seeingEnvironmentSphereScript.Reset();
         }
         if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed && GreenLightTimer <= 0)
         {
-            PlayerSounds[0].Play();
+            //PlayerSounds[0].Play();
             GreenLightTimer = GreenLightCooldown;
             seeingPuzzlesSphere.transform.position = gameObject.transform.position;
             seeingPuzzlesSphereScript.Reset();
         }
         if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed && RedLightTimer <= 0)
         {
-            PlayerSounds[0].Play();
+            //PlayerSounds[0].Play();
             RedLightTimer = RedLightCooldown;
             seeingEnemiesSphereScript.transform.position = gameObject.transform.position;
             seeingEnemiesSphereScript.Reset();
