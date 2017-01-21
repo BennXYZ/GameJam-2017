@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        physics.AddForce(moveVector * 150);
+        physics.velocity = moveVector * 150;
         FixSpeed();
         moveVector = Vector3.zero;
     }
