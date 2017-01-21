@@ -105,7 +105,6 @@
     <None Include="Assets\Materials\Leer.txt" />
     <None Include="Assets\Models\Leer.txt" />
     <None Include="Assets\Plugins\Leer.txt" />
-    <None Include="Assets\Prefabs\Leer.txt" />
     <None Include="Assets\Scenes\Leer.txt" />
     <None Include="Assets\Scripts\Leer.txt" />
     <None Include="Assets\Sounds\Leer.txt" />
