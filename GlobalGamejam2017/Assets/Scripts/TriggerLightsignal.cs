@@ -11,9 +11,9 @@ public class Triggersignal : MonoBehaviour {
     GameObject seeingEnemiesSphere;
     GameObject seeingPuzzlesSphere;
 
-    LightSignal seeingEnvironmentSphereScript;
-    LightSignal seeingEnemiesSphereScript;
-    LightSignal seeingPuzzlesSphereScript;
+    SoundSignal seeingEnvironmentSphereScript;
+    SoundSignal seeingEnemiesSphereScript;
+    SoundSignal seeingPuzzlesSphereScript;
 
     [SerializeField]
     private float BlueSoundCooldown = 1;
@@ -38,9 +38,9 @@ public class Triggersignal : MonoBehaviour {
         PlayerSounds = gameObject.GetComponents<AudioSource>();
         BlueSoundTimer = BlueSoundCooldown;
 
-        seeingEnvironmentSphereScript = seeingEnvironmentSphere.GetComponent<LightSignal>();
-        seeingEnemiesSphereScript = seeingEnemiesSphere.GetComponent<LightSignal>();
-        seeingPuzzlesSphereScript = seeingPuzzlesSphere.GetComponent<LightSignal>();
+        seeingEnvironmentSphereScript = seeingEnvironmentSphere.GetComponent<SoundSignal>();
+        seeingEnemiesSphereScript = seeingEnemiesSphere.GetComponent<SoundSignal>();
+        seeingPuzzlesSphereScript = seeingPuzzlesSphere.GetComponent<SoundSignal>();
 
 
     }

@@ -88,13 +88,14 @@
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\FPSCameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\LightSignal.cs" />
+    <Compile Include="Assets\Scripts\InteractableTest.cs" />
     <Compile Include="Assets\Scripts\Messaging.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PushableObject.cs" />
     <Compile Include="Assets\Scripts\SeeableThings.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
+    <Compile Include="Assets\Scripts\SoundSignal.cs" />
     <Compile Include="Assets\Scripts\TriggerLightAllColors.cs" />
     <Compile Include="Assets\Scripts\TriggerLightRange.cs" />
     <Compile Include="Assets\Scripts\TriggerLightsignal.cs" />

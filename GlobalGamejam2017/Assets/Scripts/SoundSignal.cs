@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LightSignal : MonoBehaviour {
+public class SoundSignal: MonoBehaviour {
 
     [SerializeField]
     [Range(0.01f,1)]
@@ -31,7 +31,7 @@ public class LightSignal : MonoBehaviour {
     public float intensity;
 
     [SerializeField]
-    private UnityEvent interact;
+    private UnityEvent Create;
 
     private bool stopIncreasing = false;
 
@@ -39,21 +39,17 @@ public class LightSignal : MonoBehaviour {
     void Start()
     {
         Reset();
+        Create.Invoke();
     }
 
-    public Vector4 Information()
+    public float Radius()
     {
-        return new Vector4(transform.position.x, transform.position.y, transform.position.z, radius);
+        return radius;
     }
 
     public bool GetStopIncreasing()
     {
         return stopIncreasing;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        interact.Invoke();
     }
 
     public void Reset()
@@ -70,12 +66,17 @@ public class LightSignal : MonoBehaviour {
         if (!stopIncreasing)
             UpdateGrow();
         if (intensity <= 0)
-            stopIncreasing = true;
+        {
+            Destroy(gameObject);
+        }
+
 	}
 
     private void UpdateGrow()
     {
         intensity -= lossPerOverTime;
-        radius += growPerOverTime;
+        transform.localScale = new Vector3(transform.localScale.x + growPerOverTime * intensity * intensity,
+            transform.localScale.y + growPerOverTime * intensity * intensity,
+            transform.localScale.z + growPerOverTime * intensity * intensity);
     }
 }
