@@ -43,7 +43,7 @@ public class LightSignal : MonoBehaviour {
         return stopIncreasing;
     }
 
-    private void Reset()
+    public void Reset()
     {
         stopIncreasing = false;
         transform.localScale = new Vector3(startSize, startSize, startSize);

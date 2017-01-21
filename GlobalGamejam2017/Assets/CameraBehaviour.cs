@@ -5,7 +5,9 @@ using UnityEngine;
 public class CameraBehaviour : MonoBehaviour {
 
     [SerializeField]
-    private float cameraOffset;
+    private float cameraHeightY;
+    [SerializeField]
+    private float cameraOffsetZ;
     [SerializeField]
     private List<GameObject> players = new List<GameObject>();
 
@@ -19,7 +21,7 @@ public class CameraBehaviour : MonoBehaviour {
         if (players.Count == 1)
         {
             transform.position = players[0].transform.position;
-            transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z - 10);
+            transform.position = new Vector3(transform.position.x, transform.position.y + cameraHeightY, transform.position.z - cameraOffsetZ);
             transform.LookAt(players[0].transform);
         }
         else if (players.Count == 2)
