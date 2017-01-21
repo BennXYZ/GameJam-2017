@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseColour : MonoBehaviour
+public class SeeableThings: MonoBehaviour
 {
 
     enum SeeingSpheres { SeeEnvironmentSphere, SeeEnemiesSphere, SeePuzzlesSphere}
