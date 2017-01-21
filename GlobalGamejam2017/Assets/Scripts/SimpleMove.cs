@@ -6,8 +6,6 @@ public class SimpleMove : MonoBehaviour {
 
     [SerializeField]
     private float movementSpeed;
-    [SerializeField]
-    private float cameraSpeed;
 
     // Update is called once per frame
     void Update ()
@@ -15,8 +13,7 @@ public class SimpleMove : MonoBehaviour {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        transform.Translate(0, 0, vertical * movementSpeed);
-
-        transform.Rotate(0, horizontal * cameraSpeed, 0);
+        transform.Translate(horizontal * movementSpeed, 0, vertical * movementSpeed);
+        
 	}
 }
