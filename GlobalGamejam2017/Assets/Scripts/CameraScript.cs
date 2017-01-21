@@ -18,8 +18,12 @@ public class CameraScript : MonoBehaviour {
     void Update() {
         float desiredAngle = player.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-        transform.position = transform.position + (player.transform.position - (rotation * offSet) - transform.position)/10;
+        transform.position = transform.position + (player.transform.position - (rotation * offSet) - transform.position) / 10;
+
 
         transform.LookAt(player.transform);
     }
+
+    
+
 }
