@@ -11,7 +11,7 @@ public class InteractableTest : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //FindSounds();
+        FindSounds();
     }
 
     public void FindSounds()
