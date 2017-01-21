@@ -15,34 +15,61 @@ public class HouseColour : MonoBehaviour
     [Range(0.001f,1)]
     private float decreaseTime = 0.1f;
 
-    Mesh mesh;
-    Vector3[] vertices;
-    Color[] colors;
-    float[] intensities;
-    List<int> triggeredVerticies;
-    private bool atSphereRange;
-    SphereCollider seeingSphere;
+    List<Mesh> meshes;
+    List<List<Vector3>> meshesVertices;
+    List<Vector3> singleVertices;
+    List<List<Color>> meshesColors;
+    List<Color> singleColors;
+    List<List<float>> meshesIntensities;
+    List<float> singleIntensities;
     GameObject sphere;
     LightSignal sphereScript;
+    List<GameObject> objects;
 
     // Use this for initialization
     void Start()
     {
-        mesh = GetComponent<MeshFilter>().mesh;
-        vertices = mesh.vertices;
+        meshes = new List<Mesh>();
+        singleVertices = new List<Vector3>();
+        meshesVertices = new List<List<Vector3>>();
+        singleColors = new List<Color>();
+        meshesColors = new List<List<Color>>();
+        singleIntensities = new List<float>();
+        meshesIntensities = new List<List<float>>();
+        objects = new List<GameObject>();
+
+
+
+        for (int i = 0; i < GetComponentsInChildren<MeshFilter>().Length; i++)
+        {
+            meshes.Add(GetComponentsInChildren<MeshFilter>()[i].mesh);
+            objects.Add(GetComponentsInChildren<MeshFilter>()[i].gameObject);
+        }
+
+        for (int m = 0; m < meshes.Count; m++)
+        {
+            singleColors = new List<Color>();
+            singleVertices = new List<Vector3>();
+            singleIntensities = new List<float>();
+            for (int c = 0; c < meshes[m].vertices.Length; c++)
+            {
+                singleColors.Add(Color.black);
+                singleVertices.Add(meshes[m].vertices[c]);
+                singleIntensities.Add(0);
+            }
+            meshesColors.Add(singleColors);
+            meshesIntensities.Add(singleIntensities);
+            meshesVertices.Add(singleVertices);
+        }
+
+
 
         sphere = GameObject.FindGameObjectWithTag(ReactingSphere.ToString());
-        seeingSphere = sphere.GetComponent<SphereCollider>();
+
         sphereScript = sphere.GetComponent<LightSignal>();
 
-        colors = new Color[vertices.Length];
-        intensities = new float[vertices.Length];
-        triggeredVerticies = new List<int>();
-
-        for (int i = 0; i < colors.Length; i++)
-            colors[i] = Color.black;
-
-        mesh.colors = colors;
+        for(int i = 0; i < meshes.Count; i++)
+        meshes[i].colors = meshesColors[i].ToArray();
     }
 
     // Update is called once per frame
@@ -54,61 +81,59 @@ public class HouseColour : MonoBehaviour
         UpdateColors();
     }
 
-    private void Reset()
-    {
-        triggeredVerticies.Clear();
-    }
-
     private void UpdateColors()
     {
         switch (ReactingSphere)
         {
             case SeeingSpheres.SeeEnvironmentSphere:
-                for (int i = 0; i < colors.Length; i++)
-                    if (colors[i].g > 0)
-                        colors[i].g -= decreaseTime;
-                    else
-                        colors[i].g = 0;
+                for (int m = 0; m < meshesColors.Count; m++)
+                    for (int c = 0; c < meshesColors[m].Count; c++)
+                        if (meshesColors[m][c].b > 0)
+                            meshesColors[m][c] = new Color(meshesColors[m][c].r, meshesColors[m][c].g, meshesColors[m][c].b - decreaseTime);
+                        else
+                            meshesColors[m][c] = new Color(meshesColors[m][c].r, meshesColors[m][c].g, 0);
                 break;
             case SeeingSpheres.SeePuzzlesSphere:
-                for (int i = 0; i < colors.Length; i++)
-                    if (colors[i].b > 0)
-                        colors[i].b -= decreaseTime;
-                    else
-                        colors[i].b = 0;
+                for (int m = 0; m < meshesColors.Count; m++)
+                    for (int c = 0; c < meshesColors[m].Count; c++)
+                        if (meshesColors[m][c].g > 0)
+                            meshesColors[m][c] = new Color(meshesColors[m][c].r, meshesColors[m][c].g - decreaseTime, meshesColors[m][c].b);
+                        else
+                            meshesColors[m][c] = new Color(meshesColors[m][c].r, 0, meshesColors[m][c].b);
                 break;
             case SeeingSpheres.SeeEnemiesSphere:
-                for (int i = 0; i < colors.Length; i++)
-                    if (colors[i].r > 0)
-                        colors[i].r -= decreaseTime;
-                    else
-                        colors[i].r = 0;
+                for (int m = 0; m < meshesColors.Count; m++)
+                    for (int c = 0; c < meshesColors[m].Count; c++)
+                        if (meshesColors[m][c].r > 0)
+                            meshesColors[m][c] = new Color(meshesColors[m][c].r - decreaseTime, meshesColors[m][c].g, meshesColors[m][c].b);
+                        else
+                            meshesColors[m][c] = new Color(0, meshesColors[m][c].g, meshesColors[m][c].b);
                 break;
         }
-
-
-        mesh.colors = colors;
+        for (int m = 0; m < meshesColors.Count; m++)
+                meshes[m].colors = meshesColors[m].ToArray();
     }
 
     private void CheckCollisionWithSphere()
     {
-        for (int i = 0; i < vertices.Length; i++)
+        for (int m = 0; m < meshes.Count; m++)
         {
-            if (seeingSphere.transform.localScale.x > Vector3.Distance((transform.rotation * vertices[i] + transform.position), seeingSphere.transform.position) &&
-                seeingSphere.transform.localScale.x * sphereScript.sizeOfBorder < Vector3.Distance((transform.rotation * vertices[i] + transform.position), seeingSphere.transform.position)
-                && (transform.rotation * vertices[i] + transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
+            for(int v = 0; v < meshesVertices[m].Count; v++)
+            if (sphereScript.Radius() > Vector3.Distance((objects[m].transform.rotation * (meshesVertices[m][v] * objects[m].transform.localScale.x) + objects[m].transform.position), sphere.transform.position) &&
+                sphereScript.Radius() * sphereScript.sizeOfBorder < Vector3.Distance((objects[m].transform.rotation * (meshesVertices[m][v] * objects[m].transform.localScale.x) + objects[m].transform.position), sphere.transform.position)
+                && (transform.rotation * meshesVertices[m][v] + transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
             {
                 switch (ReactingSphere)
                 {
                     case SeeingSpheres.SeeEnvironmentSphere:
-                        colors[i].g = sphereScript.intensity;
-                        break;
+                            meshesColors[m][v] = new Color(meshesColors[m][v].r, meshesColors[m][v].g, sphereScript.intensity);
+                            break;
                     case SeeingSpheres.SeePuzzlesSphere:
-                        colors[i].b = sphereScript.intensity;
-                        break;
+                            meshesColors[m][v] = new Color(meshesColors[m][v].r, sphereScript.intensity, meshesColors[m][v].b);
+                            break;
                     case SeeingSpheres.SeeEnemiesSphere:
-                        colors[i].r = sphereScript.intensity;
-                        break;
+                            meshesColors[m][v] = new Color(sphereScript.intensity, meshesColors[m][v].g, meshesColors[m][v].b);
+                            break;
                 }
             }
         }

@@ -25,6 +25,8 @@ public class LightSignal : MonoBehaviour {
     [Range(0, 1)]
     public float sizeOfBorder = 0;
 
+    private float radius = 0;
+
     private float startSize;
     public float intensity;
 
@@ -33,9 +35,12 @@ public class LightSignal : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        startSize = transform.localScale.x;
         Reset();
-        Debug.Log(stopIncreasing);
+    }
+
+    public float Radius()
+    {
+        return radius;
     }
 
     public bool GetStopIncreasing()
@@ -46,7 +51,7 @@ public class LightSignal : MonoBehaviour {
     public void Reset()
     {
         stopIncreasing = false;
-        transform.localScale = new Vector3(startSize, startSize, startSize);
+        radius = 0;
         intensity = startIntensity;
     }
 
@@ -63,6 +68,6 @@ public class LightSignal : MonoBehaviour {
     private void UpdateGrow()
     {
         intensity -= lossPerOverTime;
-        transform.localScale = transform.localScale * 1 / (1 - growPerOverTime * intensity * 5);
+        radius += growPerOverTime;
     }
 }

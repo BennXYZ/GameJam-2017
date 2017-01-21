@@ -86,8 +86,10 @@
   <ItemGroup>
     <Compile Include="Assets\CameraBehaviour.cs" />
     <Compile Include="Assets\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\GiveSeeableScript.cs" />
     <Compile Include="Assets\Scripts\HouseColour.cs" />
     <Compile Include="Assets\Scripts\LightSignal.cs" />
+    <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\TriggerLightAllColors.cs" />
     <Compile Include="Assets\Scripts\TriggerLightRange.cs" />
