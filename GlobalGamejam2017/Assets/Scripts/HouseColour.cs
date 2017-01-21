@@ -119,9 +119,9 @@ public class HouseColour : MonoBehaviour
         for (int m = 0; m < meshes.Count; m++)
         {
             for(int v = 0; v < meshesVertices[m].Count; v++)
-            if (sphereScript.Radius() > Vector3.Distance((objects[m].transform.rotation * (meshesVertices[m][v] * objects[m].transform.localScale.x) + objects[m].transform.position), sphere.transform.position) &&
-                sphereScript.Radius() * sphereScript.sizeOfBorder < Vector3.Distance((objects[m].transform.rotation * (meshesVertices[m][v] * objects[m].transform.localScale.x) + objects[m].transform.position), sphere.transform.position)
-                && (objects[m].transform.rotation * meshesVertices[m][v] + objects[m].transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
+            if (sphereScript.Radius() > Vector3.Distance(((objects[m].transform.rotation * meshesVertices[m][v]) * objects[m].transform.localScale.x + objects[m].transform.position), sphere.transform.position) &&
+                sphereScript.Radius() * sphereScript.sizeOfBorder < Vector3.Distance(((objects[m].transform.rotation *meshesVertices[m][v] ) * objects[m].transform.localScale.x + objects[m].transform.position), sphere.transform.position)
+                && ((objects[m].transform.rotation * meshesVertices[m][v]) * objects[m].transform.localScale.x + objects[m].transform.position).y > sphere.transform.position.y - sphereScript.maxDepth)
             {
                 switch (ReactingSphere)
                 {

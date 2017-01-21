@@ -116,6 +116,9 @@
     <None Include="Assets\Sprites\Leer.txt" />
     <None Include="Assets\Terrains\Leer.txt" />
     <None Include="Assets\Textures\Leer.txt" />
+    <None Include="Assets\UnityVC\StandardSpecularVC.shader" />
+    <None Include="Assets\UnityVC\StandardVC.shader" />
+    <None Include="Assets\UnityVC\UnityVC.cginc" />
     <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
