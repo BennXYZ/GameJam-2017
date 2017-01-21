@@ -19,7 +19,7 @@ public class CameraBehaviour : MonoBehaviour {
         if (players.Count == 1)
         {
             transform.position = players[0].transform.position;
-            transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z - 1);
+            transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z - 10);
             transform.LookAt(players[0].transform);
         }
         else if (players.Count == 2)
