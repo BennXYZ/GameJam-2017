@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour {
 
     private bool Freeze = false;
     private Vector3 moveVector;
+    private Vector3 rotateVector;
     [SerializeField]
     private float speed = 0;
     Rigidbody physics;
@@ -25,14 +26,19 @@ public class Movement : MonoBehaviour {
 	void Update () {
         gamePad = GamePad.GetState(PlayerIndex.One);
         Vector2 leftStick = new Vector2(gamePad.ThumbSticks.Left.X, gamePad.ThumbSticks.Left.Y);
+        Vector2 rightStick = new Vector2(gamePad.ThumbSticks.Right.X, gamePad.ThumbSticks.Right.Y);
         TryMove(leftStick);
+        TryRotate(rightStick);
     }
 
     private void FixedUpdate()
     {
-        physics.velocity = moveVector * 150;
+        transform.Translate(new Vector3(1,0,0) * moveVector.y);
+        transform.Translate(new Vector3(0, 0, -moveVector.x));
         FixSpeed();
         moveVector = Vector3.zero;
+
+        transform.Rotate(rotateVector);
     }
 
     private void FixSpeed()
@@ -47,11 +53,15 @@ public class Movement : MonoBehaviour {
     {
         if (!Freeze)
         {
-            if (leftStick.y > 0.1f || leftStick.y < 0.1f)
-                moveVector.z = leftStick.y * Time.deltaTime * speed;
+            moveVector = new Vector3(leftStick.x * Time.deltaTime * speed, leftStick.y * Time.deltaTime * speed);
+        }
+    }
 
-            if (leftStick.x > 0.1f || leftStick.x < 0.1f)
-                moveVector.x = leftStick.x * Time.deltaTime * speed;
+    private void TryRotate(Vector2 rightStick)
+    {
+        if(!Freeze)
+        {
+            rotateVector = new Vector3(0, rightStick.x, 0);
         }
     }
 
