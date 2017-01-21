@@ -78,21 +78,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\FPSCameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\HouseColour.cs" />
-    <Compile Include="Assets\Scripts\LightSignal.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-=======
-    <Compile Include="Assets\CameraBehaviour.cs" />
-    <Compile Include="Assets\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\GiveSeeableScript.cs" />
     <Compile Include="Assets\Scripts\HouseColour.cs" />
     <Compile Include="Assets\Scripts\LightSignal.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
->>>>>>> master
+    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\TriggerLightAllColors.cs" />
     <Compile Include="Assets\Scripts\TriggerLightRange.cs" />
@@ -111,6 +104,9 @@
     <None Include="Assets\Sprites\Leer.txt" />
     <None Include="Assets\Terrains\Leer.txt" />
     <None Include="Assets\Textures\Leer.txt" />
+    <None Include="Assets\UnityVC\StandardSpecularVC.shader" />
+    <None Include="Assets\UnityVC\StandardVC.shader" />
+    <None Include="Assets\UnityVC\UnityVC.cginc" />
     <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
