@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -70,9 +67,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -84,13 +78,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraBehaviour.cs" />
-    <Compile Include="Assets\EnemyBehaviour.cs" />
-    <Compile Include="Assets\Scripts\HouseColour.cs" />
+    <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
+    <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\FPSCameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\LightSignal.cs" />
+    <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\SeeableThings.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\TriggerLightAllColors.cs" />
     <Compile Include="Assets\Scripts\TriggerLightRange.cs" />
+    <Compile Include="Assets\Scripts\TriggerLightsignal.cs" />
     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +103,9 @@
     <None Include="Assets\Sprites\Leer.txt" />
     <None Include="Assets\Terrains\Leer.txt" />
     <None Include="Assets\Textures\Leer.txt" />
+    <None Include="Assets\UnityVC\StandardSpecularVC.shader" />
+    <None Include="Assets\UnityVC\StandardVC.shader" />
+    <None Include="Assets\UnityVC\UnityVC.cginc" />
     <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
