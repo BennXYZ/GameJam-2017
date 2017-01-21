@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LightSignal : MonoBehaviour {
 
@@ -24,11 +25,13 @@ public class LightSignal : MonoBehaviour {
     [SerializeField]
     [Range(0, 1)]
     public float sizeOfBorder = 0;
-
     private float radius = 0;
 
     private float startSize;
     public float intensity;
+
+    [SerializeField]
+    private UnityEvent interact;
 
     private bool stopIncreasing = false;
 
@@ -38,14 +41,19 @@ public class LightSignal : MonoBehaviour {
         Reset();
     }
 
-    public float Radius()
+    public Vector4 Information()
     {
-        return radius;
+        return new Vector4(transform.position.x, transform.position.y, transform.position.z, radius);
     }
 
     public bool GetStopIncreasing()
     {
         return stopIncreasing;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        interact.Invoke();
     }
 
     public void Reset()
