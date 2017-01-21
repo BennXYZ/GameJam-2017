@@ -9,10 +9,10 @@ public class TriggerLightAllColors : MonoBehaviour
     bool isUnLighting;
     float lightTime = 0;
     float unLightTime = 0;
-    Color transparence;
-    Material redMaterial;
-    Material blueMaterial;
-    Material greenMaterial;
+
+    List<GameObject> redObjects;
+    List<GameObject> blueObjects;
+    List<GameObject> greenObjects;
 
     [SerializeField]
     float maxLightImpulseTime;
@@ -29,8 +29,28 @@ public class TriggerLightAllColors : MonoBehaviour
 
     private void Start()
     {
-        transparence.a = 0;
-        redMaterial = ;
+        GameObject[] objects = GameObject.FindObjectsOfType<GameObject>();
+        for (var i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].layer == 8) //Blue
+            {
+                blueObjects.Add(objects[i]);
+            }
+        }
+        for (var i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].layer == 9) //Red
+            {
+                redObjects.Add(objects[i]);
+            }
+        }
+        for (var i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].layer == 10) //Green
+            {
+                greenObjects.Add(objects[i]);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +60,19 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 256;
             pointLight.color = Color.blue;
-            
+            foreach(GameObject blueObject in blueObjects)
+            {
+                blueObject.GetComponent<Renderer>().material.color = new Color(0, 0, 255, 255);
+            }
+            foreach (GameObject greenObject in greenObjects)
+            {
+                greenObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0);
+            }
+            foreach (GameObject redObject in redObjects)
+            {
+                redObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0);
+            }
+
         }
         if (Input.GetButtonDown("Red"))
         {
