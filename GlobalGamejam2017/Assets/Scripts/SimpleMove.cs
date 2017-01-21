@@ -13,7 +13,7 @@ public class SimpleMove : MonoBehaviour {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        transform.Translate((transform.forward * vertical) * movementSpeed);
+        transform.Translate(horizontal * movementSpeed, 0, vertical * movementSpeed);
         
 	}
 }

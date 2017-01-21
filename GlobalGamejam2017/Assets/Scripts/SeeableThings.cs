@@ -134,6 +134,7 @@ public class SeeableThings: MonoBehaviour
                     case SeeingSpheres.SeeEnemiesSphere:
                             meshesColors[m][v] = new Color(sphereScript.intensity, meshesColors[m][v].g, meshesColors[m][v].b);
                             break;
+                            
                 }
             }
         }

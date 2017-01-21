@@ -45,7 +45,7 @@ public class TriggerLightAllColors : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && isLighting == false && isUnLighting == false)
         {
             isLighting = true;
-            impulse.Play();
+            //impulse.Play();
         }
 
         if (isLighting)

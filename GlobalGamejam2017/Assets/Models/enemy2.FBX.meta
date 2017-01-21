@@ -1,20 +1,22 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: fc463b1a901d7b74288dfbc68f8da4aa
-timeCreated: 1485006771
-=======
-guid: 942b55cee3be658479707816e482d464
-timeCreated: 1485006970
->>>>>>> master
+guid: a26c64c9bf7383b43b6a5fed2a92875f
+timeCreated: 1485009484
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Box001
+    100002: //RootNode
+    100004: Sphere001
+    400000: Box001
+    400002: //RootNode
+    400004: Sphere001
+    2300000: Box001
+    2300002: Sphere001
+    3300000: Box001
+    3300002: Sphere001
     4300000: Box001
+    4300002: Sphere001
     9500000: //RootNode
   materials:
     importMaterials: 1
