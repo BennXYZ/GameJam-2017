@@ -1,13 +1,27 @@
 fileFormatVersion: 2
-guid: b1eeaf1345d218e4db546879f3030e70
+guid: 2b79df7517d9d4943a87613caa7b14eb
+timeCreated: 1484975837
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder001
+    100004: GeoSphere001
+    100006: GeoSphere002
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Box001
+    400002: Cylinder001
+    400004: GeoSphere001
+    400006: GeoSphere002
+    2300000: Cylinder001
+    2300002: GeoSphere001
+    2300004: GeoSphere002
+    3300000: Cylinder001
+    3300002: GeoSphere001
+    3300004: GeoSphere002
+    4300000: Cylinder001
+    4300002: GeoSphere001
+    4300004: GeoSphere002
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +47,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
