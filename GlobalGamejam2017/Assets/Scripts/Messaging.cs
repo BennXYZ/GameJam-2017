@@ -9,7 +9,7 @@ public class Messaging : MonoBehaviour {
     [SerializeField]
     private Text messaging;
     private string emptyMessage = "";
-    private string[] messages = new string[20];
+    private string[] messages = new string[50];
 
     float visibleTime = 0;
     [SerializeField]
@@ -42,6 +42,36 @@ public class Messaging : MonoBehaviour {
         messages[17] = "Statues?";
         messages[18] = "I can't stand it any longer!";
         messages[19] = "I am going back now!";
+        messages[20] = "What is the last thing you remember?";
+        messages[21] = "Imagine you are a sailor on a pirate ship...";
+        messages[22] = "Keep going!";
+        messages[23] = "Is this a game?";
+        messages[24] = "When you are really far away, everything seems so small";
+        messages[25] = "Home... oh sweet home...";
+        messages[26] = "Who is to blame?";
+        messages[27] = "They live...I don't!";
+        messages[28] = "The lantern... I must reach it!";
+        messages[29] = "Everybody must die";
+        messages[30] = "Embrace the light";
+        messages[31] = "I will be a better person, I promise!";
+        messages[32] = "Breakfast at 9am";
+        messages[33] = "More light!";
+        messages[34] = "We're blasting off again";
+        messages[35] = "To infinity and beyond!";
+        messages[36] = "You died...";
+        messages[37] = "If only we got a second opinion from another doctor...";
+        messages[38] = "Hello from the other side";
+        messages[39] = "Everything is fine...";
+        messages[40] = "Nobody is listening";
+        messages[41] = "Alone?";
+        messages[42] = "What are those creepy things?";
+        messages[43] = "Goodbye darling";
+        messages[44] = "I am scared!";
+        messages[45] = "Maybe we will meet again someday";
+        messages[46] = "What is the reason for all of this?";
+        messages[47] = "No escape!";
+        messages[48] = "And again and again and again...";
+        messages[49] = "Today I am sad";
         
 	}
 	
@@ -66,6 +96,7 @@ public class Messaging : MonoBehaviour {
                 visibleTime = 0;
                 SetText(GetRandomIndex());
             }
+            other.gameObject.SetActive(false);
         }
     }
 

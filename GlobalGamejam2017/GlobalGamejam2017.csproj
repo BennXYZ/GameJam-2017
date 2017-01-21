@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets\Plugins\x86_64\XInputDotNetPure.dll</HintPath>
     </Reference>
@@ -100,7 +106,6 @@
     <None Include="Assets\Materials\Leer.txt" />
     <None Include="Assets\Models\Leer.txt" />
     <None Include="Assets\Plugins\Leer.txt" />
-    <None Include="Assets\Prefabs\Leer.txt" />
     <None Include="Assets\Scenes\Leer.txt" />
     <None Include="Assets\Scripts\Leer.txt" />
     <None Include="Assets\Sounds\Leer.txt" />
