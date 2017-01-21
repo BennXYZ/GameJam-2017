@@ -11,7 +11,7 @@ public class InteractableTest : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        FindSounds();
+        //FindSounds();
     }
 
     public void FindSounds()
@@ -24,11 +24,12 @@ public class InteractableTest : MonoBehaviour
     {
             if (soundWave == null)
                 FindSounds();
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody == soundWave.GetComponent<Rigidbody>())
+        if (collision.gameObject.tag == "SoundWave")
             Interact();
     }
 

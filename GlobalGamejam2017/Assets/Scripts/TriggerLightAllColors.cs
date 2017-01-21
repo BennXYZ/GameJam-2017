@@ -9,6 +9,10 @@ public class TriggerLightAllColors : MonoBehaviour
     bool isUnLighting;
     float lightTime = 0;
     float unLightTime = 0;
+    Color transparence;
+    Material redMaterial;
+    Material blueMaterial;
+    Material greenMaterial;
 
     [SerializeField]
     float maxLightImpulseTime;
@@ -23,6 +27,12 @@ public class TriggerLightAllColors : MonoBehaviour
     [SerializeField]
     AudioSource impulse;
 
+    private void Start()
+    {
+        transparence.a = 0;
+        redMaterial = ;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +40,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 256;
             pointLight.color = Color.blue;
+            
         }
         if (Input.GetButtonDown("Red"))
         {

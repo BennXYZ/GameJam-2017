@@ -8,7 +8,7 @@ public class SoundSignal: MonoBehaviour {
 
     [SerializeField]
     [Range(0.01f,1)]
-    private float startIntensity = 1;
+    public float intensity = 1;
 
     [SerializeField]
     [Range(0.0001f, 0.1f)]
@@ -27,8 +27,9 @@ public class SoundSignal: MonoBehaviour {
     public float sizeOfBorder = 0;
     private float radius = 0;
 
-    private float startSize;
-    public float intensity;
+    public enum SoundColor { Red,Blue,Green};
+    [SerializeField]
+    public SoundColor thisSoundColor = SoundColor.Blue;
 
     [SerializeField]
     private UnityEvent Create;
@@ -38,7 +39,8 @@ public class SoundSignal: MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Reset();
+        stopIncreasing = false;
+        radius = 0;
         Create.Invoke();
     }
 
@@ -54,9 +56,7 @@ public class SoundSignal: MonoBehaviour {
 
     public void Reset()
     {
-        stopIncreasing = false;
-        radius = 0;
-        intensity = startIntensity;
+
     }
 
     // Update is called once per frame
