@@ -58,7 +58,7 @@ public class TriggerLightAllColors : MonoBehaviour
             }
 
 
-            pointLight.range = 1 + (lightTime * LightImpulseIntensity);
+            pointLight.range += (lightTime * LightImpulseIntensity);
 
 
             lightTime += Time.deltaTime;
@@ -71,7 +71,7 @@ public class TriggerLightAllColors : MonoBehaviour
                 unLightTime = 0;
             }
 
-            pointLight.range = (maxUnlightTime / unLightTime);
+            pointLight.range -= (maxUnlightTime * unLightTime);
 
             unLightTime += Time.deltaTime;
         }
