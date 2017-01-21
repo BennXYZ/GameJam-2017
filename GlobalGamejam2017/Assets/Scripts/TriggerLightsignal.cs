@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using XInputDotNetPure;
 
 
@@ -15,16 +16,16 @@ public class Triggersignal : MonoBehaviour {
     LightSignal seeingPuzzlesSphereScript;
 
     [SerializeField]
-    private float BlueLightCooldown = 1;
-    private float BlueLightTimer;
+    private float BlueSoundCooldown = 1;
+    private float BlueSoundTimer;
 
     [SerializeField]
-    private float RedLightCooldown = 1;
-    private float RedLightTimer;
+    private float RedSoundCooldown = 1;
+    private float RedSoundTimer;
 
     [SerializeField]
-    private float GreenLightCooldown = 1;
-    private float GreenLightTimer;
+    private float GreenSoundCooldown = 1;
+    private float GreenSoundTimer;
 
     AudioSource[] PlayerSounds;
 
@@ -35,7 +36,7 @@ public class Triggersignal : MonoBehaviour {
         seeingPuzzlesSphere = GameObject.FindGameObjectWithTag("SeePuzzlesSphere");
 
         PlayerSounds = gameObject.GetComponents<AudioSource>();
-        BlueLightTimer = BlueLightCooldown;
+        BlueSoundTimer = BlueSoundCooldown;
 
         seeingEnvironmentSphereScript = seeingEnvironmentSphere.GetComponent<LightSignal>();
         seeingEnemiesSphereScript = seeingEnemiesSphere.GetComponent<LightSignal>();
@@ -48,47 +49,45 @@ public class Triggersignal : MonoBehaviour {
 	void Update () {
         UpdateTimers();
         
-        if ((GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueLightTimer <= 0) || Input.GetButtonDown("Blue"))
+        if ((GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed && BlueSoundTimer <= 0) || Input.GetButtonDown("Blue"))
         {
 
             //PlayerSounds[0].Play();
-            BlueLightTimer = BlueLightCooldown;
+            BlueSoundTimer = BlueSoundCooldown;
             seeingEnvironmentSphere.transform.position = gameObject.transform.position;
             seeingEnvironmentSphereScript.Reset();
         }
-        if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed && GreenLightTimer <= 0)
+        if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed && GreenSoundTimer <= 0)
         {
             //PlayerSounds[0].Play();
-            GreenLightTimer = GreenLightCooldown;
+            GreenSoundTimer = GreenSoundCooldown;
             seeingPuzzlesSphere.transform.position = gameObject.transform.position;
             seeingPuzzlesSphereScript.Reset();
         }
-        if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed && RedLightTimer <= 0)
+        if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed && RedSoundTimer <= 0)
         {
             //PlayerSounds[0].Play();
-            RedLightTimer = RedLightCooldown;
+            RedSoundTimer = RedSoundCooldown;
             seeingEnemiesSphereScript.transform.position = gameObject.transform.position;
             seeingEnemiesSphereScript.Reset();
         }
-
-
     }
 
     void UpdateTimers()
     {
-        if (BlueLightTimer > 0)
+        if (BlueSoundTimer > 0)
         {
-            BlueLightTimer -= Time.deltaTime;
+            BlueSoundTimer -= Time.deltaTime;
         }
 
-        if (RedLightTimer > 0)
+        if (RedSoundTimer > 0)
         {
-            RedLightTimer -= Time.deltaTime;
+            RedSoundTimer -= Time.deltaTime;
         }
 
-        if (GreenLightTimer > 0)
+        if (GreenSoundTimer > 0)
         {
-            GreenLightTimer -= Time.deltaTime;
+            GreenSoundTimer -= Time.deltaTime;
         }
 
     }

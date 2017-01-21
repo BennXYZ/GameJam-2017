@@ -1,13 +1,42 @@
 fileFormatVersion: 2
-guid: 86a9d6d87c3674749a1a5c3d96f62fa7
+guid: 5a253eb91f6865145a4added5a9d2f8e
+timeCreated: 1485016163
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Box001
+    100004: Box001 1
+    100006: Cylinder001
+    100008: Hedra001
+    100010: Hedra001 1
+    100012: OilTank002
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Box001
+    400002: Box001
+    400004: Box001 1
+    400006: Cylinder001
+    400008: Hedra001
+    400010: Hedra001 1
+    400012: OilTank002
+    2300000: Box001
+    2300002: Box001 1
+    2300004: Cylinder001
+    2300006: Hedra001
+    2300008: Hedra001 1
+    2300010: OilTank002
+    3300000: Box001
+    3300002: Box001 1
+    3300004: Cylinder001
+    3300006: Hedra001
+    3300008: Hedra001 1
+    3300010: OilTank002
+    4300000: Cylinder001
+    4300002: Hedra001
+    4300004: OilTank002
+    4300006: Hedra001
+    4300008: Box001
+    4300010: Box001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +62,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
