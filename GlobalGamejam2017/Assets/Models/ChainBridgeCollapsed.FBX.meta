@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: 1b3f73520202dc64f865fe12eb16092d
+guid: b705b1d859b09a44d9e0ab79d9e12207
+timeCreated: 1484989282
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -7,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box001
+    4300000: ChainBridge
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
