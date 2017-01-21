@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\FPSCameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\LightSignal.cs" />
+    <Compile Include="Assets\Scripts\Messaging.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PushableObject.cs" />
