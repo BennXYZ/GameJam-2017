@@ -4,7 +4,7 @@ using UnityEngine;
 using XInputDotNetPure;
 
 
-public class TriggerLightsignal : MonoBehaviour {
+public class Triggersignal : MonoBehaviour {
 
     GameObject seeingEnvironmentSphere;
     GameObject seeingEnemiesSphere;
