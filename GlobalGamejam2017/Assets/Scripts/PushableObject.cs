@@ -30,18 +30,18 @@ public class PushableObject: MonoBehaviour
             //    FindSounds();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "SoundWave")
-            Interact(collision);
+        if (other.gameObject.tag == "SoundWave")
+            Interact(other);
     }
 
-    private void Interact(Collision collision)
+    private void Interact(Collider other)
     {
         Debug.Log("lol");
-        Transform forceTransformation = collision.transform;
+        Transform forceTransformation = other.gameObject.transform;
         forceTransformation.LookAt(gameObject.transform.position);
 
-        GetComponent<Rigidbody>().AddForce(forceTransformation.forward.normalized * (1 / weight));
+        GetComponent<Rigidbody>().AddForce(forceTransformation.forward.normalized * (2000 / weight));
     }
 }
