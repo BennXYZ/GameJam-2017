@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
     Vector3 spawnIsle1 = new Vector3(-1.21f, 0.572f, -6.53f);
     Vector3 spawnIsle2 = new Vector3(-16.2f, 0.597f, -27.3f);
     Vector3 spawnIsle3 = new Vector3(-34.202f, 2.28f, -44.159f);
+    Vector3 spawnIsle4 = new Vector3(-61.2f, -8.11f, -46.72f);
+    Vector3 spawnIsle5 = new Vector3(-95.57f, -8.11f, -52.21f);
 
 
     // Use this for initialization
@@ -93,6 +95,14 @@ public class Movement : MonoBehaviour
         else if (other.gameObject.CompareTag("Collider_Isle3"))
         {
             transform.position = spawnIsle3;
+        }
+        else if (other.gameObject.CompareTag("Collider_Isle4"))
+        {
+            transform.position = spawnIsle4;
+        }
+        else if (other.gameObject.CompareTag("Collider_Isle5"))
+        {
+            transform.position = spawnIsle5;
         }
     }
 }
