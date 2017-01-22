@@ -166,7 +166,7 @@ public class MenuScript : MonoBehaviour
         // Add load level for new scene here.
         if (isSelected == true)
         {
-            SceneManager.LoadScene("GameScreen");
+            SceneManager.LoadScene("Main_Game_V1");
         }
 
         else
