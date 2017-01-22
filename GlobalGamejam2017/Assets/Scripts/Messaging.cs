@@ -9,7 +9,7 @@ public class Messaging : MonoBehaviour {
     [SerializeField]
     private Text messaging;
     private string emptyMessage = "";
-    private string[] messages = new string[51];
+    private string[] messages = new string[55];
     [SerializeField]
     public AudioSource deathscream;
 
@@ -41,7 +41,7 @@ public class Messaging : MonoBehaviour {
         messages[14] = "Why would you do this to us?";
         messages[15] = "We are all lost";
         messages[16] = "Why me?";
-        messages[17] = "Statues?";
+        messages[17] = "Who built those statues?";
         messages[18] = "I can't stand it any longer!";
         messages[19] = "I am going back now!";
         messages[20] = "What is the last thing you remember?";
@@ -75,6 +75,10 @@ public class Messaging : MonoBehaviour {
         messages[48] = "And again and again and again...";
         messages[49] = "Today I am sad";
         messages[50] = "It was not my time to go...";
+        messages[51] = "For a brief moment I was free!";
+        messages[52] = "What would you do if you could change your fate?";
+        messages[53] = "Will I ever forget what happened?";
+        messages[54] = "Someday you will understand...";
 
     }
 	
