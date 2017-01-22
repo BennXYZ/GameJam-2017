@@ -5,8 +5,8 @@ using UnityEngine.Audio;
 
 public class EnemyBehaviour : MonoBehaviour {
 
-    [SerializeField]
-    Transform playerTransform;
+    GameObject player;
+    Rigidbody rigid;
 
     [SerializeField]
     float speed;
@@ -18,37 +18,52 @@ public class EnemyBehaviour : MonoBehaviour {
     private int health = 1;
 
     [SerializeField]
-    private float iFrameCooldown;
+    private float FairTimeCooldown;
 
-    private float iFrames = 0;
+    private float FairTime= 0;
 
     [SerializeField]
     AudioSource impulse;
-	
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        rigid = GetComponent<Rigidbody>();
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        if(playerTransform != null)
-		if(Vector3.Distance(transform.position, playerTransform.position) > distanceToPlayer)
-        {
-            transform.LookAt(playerTransform);
-            transform.Translate(-(transform.forward * speed));
-        }
-        if (iFrames > 0)
-            iFrames -= Time.deltaTime;
+        if (player != null && FairTime <= 0)
+            if (Vector3.Distance(transform.position, player.transform.position) < distanceToPlayer)
+            {
+                transform.LookAt(new Vector3(player.transform.position.x, gameObject.transform.position.y, player.transform.position.z));
+                rigid.AddForce(transform.forward*10);
+            }
+        if (rigid.velocity.magnitude > speed)
+            rigid.velocity = rigid.velocity.normalized * speed;
+        if (FairTime > 0)
+            FairTime -= Time.deltaTime;
         if (health <= 0)
             Destroy(gameObject);
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoundWave" && iFrames <= 0)
+        if (other.gameObject.tag == "SoundWave")
             Interact();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            FairTime = FairTimeCooldown;
+        }
     }
 
     private void Interact()
     {
         health--;
-        iFrames = iFrameCooldown;
     }
 }
