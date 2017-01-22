@@ -60,6 +60,7 @@ public class TriggerLightAllColors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed)
         {
             pointLight.cullingMask = 256;
@@ -97,7 +98,7 @@ public class TriggerLightAllColors : MonoBehaviour
         }
         if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
         {
-            pointLight.cullingMask = 1024;
+            pointLight.cullingMask = 33792;
             pointLight.color = Color.green;
             //foreach (GameObject blueObject in blueObjects)
             //{
