@@ -12,12 +12,15 @@ public class PushableObject: MonoBehaviour
     [Range(0.001f,200)]
     private float force = 1;
 
+    List<GameObject> pushedBy;
+
     Rigidbody rigid;
 
     // Use this for initialization
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        pushedBy = new List<GameObject>();
     }
 
     public void FindSounds()
@@ -28,19 +31,20 @@ public class PushableObject: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            //if (soundWave == null)
-            //    FindSounds();
+        for (int i = 0; i < pushedBy.Count; i++)
+            if (pushedBy[i] == null)
+                pushedBy.RemoveAt(i);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoundWave" && rigid.velocity == Vector3.zero)
+        if (other.gameObject.tag == "SoundWave" && !pushedBy.Contains(other.gameObject))
             Interact(other);
     }
 
     private void Interact(Collider other)
     {
-        Debug.Log("lol");
+        pushedBy.Add(other.gameObject);
         Transform forceTransformation = other.gameObject.transform;
         forceTransformation.LookAt(gameObject.transform.position);
 

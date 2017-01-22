@@ -5,11 +5,12 @@ using UnityEngine.Audio;
 
 public class EnemyBehaviour : MonoBehaviour {
 
-    [SerializeField]
-    Transform playerTransform;
+    GameObject player;
+    Rigidbody rigid;
 
     [SerializeField]
     float speed;
+    float currentSpeed;
 
     [SerializeField]
     float distanceToPlayer;
@@ -18,37 +19,77 @@ public class EnemyBehaviour : MonoBehaviour {
     private int health = 1;
 
     [SerializeField]
-    private float iFrameCooldown;
+    private float FairTimeCooldown;
 
-    private float iFrames = 0;
+    private float FairTime= 0;
 
     [SerializeField]
     AudioSource impulse;
-	
+
+    [SerializeField]
+    GameObject[] pivots;
+    int nextPivot;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        rigid = GetComponent<Rigidbody>();
+        if (pivots.Length != 0)
+            nextPivot = 0;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        if(playerTransform != null)
-		if(Vector3.Distance(transform.position, playerTransform.position) > distanceToPlayer)
+        if (player != null && FairTime <= 0)
         {
-            transform.LookAt(playerTransform);
-            transform.Translate(-(transform.forward * speed));
+            if (Vector3.Distance(transform.position, player.transform.position) < distanceToPlayer)
+            {
+                currentSpeed = speed;
+                transform.LookAt(new Vector3(player.transform.position.x, gameObject.transform.position.y, player.transform.position.z));
+                rigid.AddForce(transform.forward * 10);
+            }
+            else if(pivots.Length > 0)
+                Patrol();
         }
-        if (iFrames > 0)
-            iFrames -= Time.deltaTime;
+
+        if (rigid.velocity.magnitude > currentSpeed)
+            rigid.velocity = rigid.velocity.normalized * currentSpeed;
+        if (FairTime > 0)
+            FairTime -= Time.deltaTime;
         if (health <= 0)
             Destroy(gameObject);
 	}
 
+    void Patrol()
+    {
+        currentSpeed = speed / 2;
+
+        transform.LookAt(new Vector3(pivots[nextPivot].transform.position.x, gameObject.transform.position.y, pivots[nextPivot].transform.position.z));
+        rigid.AddForce(transform.forward * 10);
+        if (Vector3.Distance(pivots[nextPivot].transform.position, transform.position) < 1)
+            nextPivot++;
+        if (nextPivot + 1 > pivots.Length)
+            nextPivot = 0;
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoundWave" && iFrames <= 0)
+        if (other.gameObject.tag == "SoundWave")
             Interact();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            FairTime = FairTimeCooldown;
+        }
     }
 
     private void Interact()
     {
         health--;
-        iFrames = iFrameCooldown;
     }
 }

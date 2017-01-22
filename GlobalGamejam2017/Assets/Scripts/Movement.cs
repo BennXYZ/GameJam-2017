@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
 
     private bool Freeze = false;
     private Vector3 moveVector;
@@ -16,14 +17,22 @@ public class Movement : MonoBehaviour {
     [SerializeField]
     private float maxSpeed = 1;
 
-	// Use this for initialization
-	void Start () {
+
+    Vector3 spawnIsle1 = new Vector3(-1.21f, 0.572f, -6.53f);
+    Vector3 spawnIsle2 = new Vector3(-16.2f, 0.597f, -27.3f);
+    Vector3 spawnIsle3 = new Vector3(-34.202f, 2.28f, -44.159f);
+
+
+    // Use this for initialization
+    void Start()
+    {
         physics = GetComponent<Rigidbody>();
-        maxSpeed = maxSpeed/5;
+        maxSpeed = maxSpeed / 5;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         gamePad = GamePad.GetState(PlayerIndex.One);
         Vector2 leftStick = new Vector2(gamePad.ThumbSticks.Left.X, gamePad.ThumbSticks.Left.Y);
         Vector2 rightStick = new Vector2(gamePad.ThumbSticks.Right.X, gamePad.ThumbSticks.Right.Y);
@@ -33,7 +42,7 @@ public class Movement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        transform.Translate(new Vector3(1,0,0) * moveVector.y);
+        transform.Translate(new Vector3(1, 0, 0) * moveVector.y);
         transform.Translate(new Vector3(0, 0, -moveVector.x));
         FixSpeed();
         moveVector = Vector3.zero;
@@ -59,10 +68,24 @@ public class Movement : MonoBehaviour {
 
     private void TryRotate(Vector2 rightStick)
     {
-        if(!Freeze)
+        if (!Freeze)
         {
             rotateVector = new Vector3(0, rightStick.x, 0);
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collider_Isle1"))
+        {
+            transform.position = spawnIsle1;
+        }
+        else if(other.gameObject.CompareTag("Collider_Isle2"))
+        {
+            transform.position = spawnIsle2;
+        }
+        else if (other.gameObject.CompareTag("Collider_Isle3"))
+        {
+            transform.position = spawnIsle3;
+        }
+    }
 }

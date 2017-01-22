@@ -23,6 +23,7 @@ public class Buttons : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.tag == "Box")
             onTrigger.Invoke();
     }
