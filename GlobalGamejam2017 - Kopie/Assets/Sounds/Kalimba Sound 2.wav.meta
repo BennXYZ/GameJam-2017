@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 3c4214a16ffbc1f45b29f73cee5f86c3
+timeCreated: 1484987432
+=======
+guid: 6b804ce3594f0d548aeafc3257abca00
+timeCreated: 1484988517
+>>>>>>> Stashed changes
+=======
+guid: 6b804ce3594f0d548aeafc3257abca00
+timeCreated: 1484988517
+>>>>>>> Stashed changes
+=======
+guid: bdf7a88c8ae06c24790878a67d1fbda8
+timeCreated: 1484977756
+>>>>>>> Stashed changes
+licenseType: Free
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
