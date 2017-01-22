@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using XInputDotNetPure;
 
 public class Movement : MonoBehaviour
@@ -48,6 +49,12 @@ public class Movement : MonoBehaviour
         moveVector = Vector3.zero;
 
         transform.Rotate(rotateVector);
+
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("MainMenuScreen");
+        }
     }
 
     private void FixSpeed()
