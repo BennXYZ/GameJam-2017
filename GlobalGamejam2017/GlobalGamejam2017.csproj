@@ -73,6 +73,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
     <Reference Include="XInputDotNetPure">
       <HintPath>Assets\Plugins\x86_64\XInputDotNetPure.dll</HintPath>
     </Reference>
@@ -92,6 +98,7 @@
     <Compile Include="Assets\Scripts\SeeableThings.cs" />
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\SoundSignal.cs" />
+    <Compile Include="Assets\Scripts\StatueBehaviour.cs" />
     <Compile Include="Assets\Scripts\TriggerLightAllColors.cs" />
     <Compile Include="Assets\Scripts\TriggerLightRange.cs" />
     <Compile Include="Assets\Scripts\TriggerLightsignal.cs" />
