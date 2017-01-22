@@ -23,6 +23,12 @@ public class TriggerLightAllColors : MonoBehaviour
     float maxUnlightTime;
     [SerializeField]
     Light pointLight;
+    [SerializeField]
+    GameObject soundWave;
+    [SerializeField]
+    float maxSoundTime;
+
+    float soundTime;
 
 
     [SerializeField]
@@ -64,6 +70,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 256;
             pointLight.color = Color.blue;
+            soundWave.layer = 11;
             //foreach (GameObject blueObject in blueObjects)
             //{
             //    blueObject.GetComponent<Renderer>().enabled = true;
@@ -82,6 +89,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 512;
             pointLight.color = Color.red;
+            soundWave.layer = 12;
             //foreach (GameObject blueObject in blueObjects)
             //{
             //    blueObject.GetComponent<Renderer>().enabled = false;
@@ -99,6 +107,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 1024;
             pointLight.color = Color.green;
+            soundWave.layer = 13;
             //foreach (GameObject blueObject in blueObjects)
             //{
             //    blueObject.GetComponent<Renderer>().enabled = false;
@@ -113,7 +122,15 @@ public class TriggerLightAllColors : MonoBehaviour
             //}
         }
 
-        if (GamePad.GetState(PlayerIndex.One).Buttons.RightShoulder == ButtonState.Pressed && isLighting == false && isUnLighting == false)
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed && soundTime <= 0)
+        {
+            soundTime = maxSoundTime;
+            Instantiate(soundWave,transform.position, transform.rotation);
+        }
+        if (soundTime > 0)
+            soundTime -= Time.deltaTime;
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.RightShoulder == ButtonState.Pressed && isLighting == false && isUnLighting == false)
         {
             isLighting = true;
             impulse.Play();

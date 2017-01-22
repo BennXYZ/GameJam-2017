@@ -44,6 +44,6 @@ public class PushableObject: MonoBehaviour
         Transform forceTransformation = other.gameObject.transform;
         forceTransformation.LookAt(gameObject.transform.position);
 
-        rigid.AddForce(forceTransformation.forward.normalized *  force * 30);
+        rigid.AddForce(forceTransformation.forward.normalized *  force * 5);
     }
 }
