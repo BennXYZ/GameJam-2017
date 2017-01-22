@@ -64,6 +64,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             pointLight.cullingMask = 256;
             pointLight.color = Color.blue;
+            
             //foreach (GameObject blueObject in blueObjects)
             //{
             //    blueObject.GetComponent<Renderer>().enabled = true;
