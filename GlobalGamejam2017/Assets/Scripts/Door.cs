@@ -22,13 +22,11 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        Debug.Log("lol");
         targetHeight = transform.position.y - EndHeight;
     }
 
     public void CloseDoor()
     {
-        Debug.Log("wut");
         targetHeight = startPosition;
     }
 

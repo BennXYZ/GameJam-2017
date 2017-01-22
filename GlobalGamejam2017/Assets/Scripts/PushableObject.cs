@@ -10,12 +10,14 @@ public class PushableObject: MonoBehaviour
 
     [SerializeField]
     [Range(0.001f,200)]
-    private float weight = 1;
+    private float force = 1;
+
+    Rigidbody rigid;
 
     // Use this for initialization
     void Start()
     {
-        //FindSounds();
+        rigid = GetComponent<Rigidbody>();
     }
 
     public void FindSounds()
@@ -32,7 +34,7 @@ public class PushableObject: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoundWave")
+        if (other.gameObject.tag == "SoundWave" && rigid.velocity == Vector3.zero)
             Interact(other);
     }
 
@@ -42,6 +44,6 @@ public class PushableObject: MonoBehaviour
         Transform forceTransformation = other.gameObject.transform;
         forceTransformation.LookAt(gameObject.transform.position);
 
-        GetComponent<Rigidbody>().AddForce(forceTransformation.forward.normalized * (2000 / weight));
+        rigid.AddForce(forceTransformation.forward.normalized *  force * 30);
     }
 }
