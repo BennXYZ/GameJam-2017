@@ -33,6 +33,8 @@ public class TriggerLightAllColors : MonoBehaviour
 
     [SerializeField]
     AudioSource impulse;
+    [SerializeField]
+    AudioSource WaveSound;
 
     private void Start()
     {
@@ -127,6 +129,7 @@ public class TriggerLightAllColors : MonoBehaviour
         {
             soundTime = maxSoundTime;
             Instantiate(soundWave,transform.position, transform.rotation);
+            WaveSound.Play();
         }
         if (soundTime > 0)
             soundTime -= Time.deltaTime;
