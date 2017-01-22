@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using XInputDotNetPure;
 
-//NOTE: If event handler is used add ", IPointerClickHandler" after MonoBehaviour!
 public class MenuScript : MonoBehaviour
 {
     //TODO: Before finish delete all debug comments!
@@ -17,7 +16,6 @@ public class MenuScript : MonoBehaviour
     {
         Main,
         Player,
-        Options,
         Help,
         Credits,
         Exit
@@ -28,10 +26,11 @@ public class MenuScript : MonoBehaviour
     // Variable for define current state.
     public MenuStates currentState;
 
+    public GamePad gamePad;
+
     // Menu panel objects as GameObjects.
     public GameObject mainMenu;
     public GameObject playerMenu;
-    public GameObject optionsMenu;
     public GameObject helpMenu;
     public GameObject creditsMenu;
     //TODO: Uncomment this if application exit in MenuState.Exit works!
@@ -63,8 +62,8 @@ public class MenuScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //TODO: Refactor hard coded SetActive check?
-        //TODO: Is exitMenu needed?
+        
+
         // Checks current menu state
         switch (currentState)
         {
@@ -72,7 +71,6 @@ public class MenuScript : MonoBehaviour
                     // Sets active gameobject for main menu
                     mainMenu.SetActive(true);
                     playerMenu.SetActive(false);
-                    optionsMenu.SetActive(false);
                     helpMenu.SetActive(false);
                     creditsMenu.SetActive(false);
                     //exitMenu.SetActive(false);
@@ -82,17 +80,6 @@ public class MenuScript : MonoBehaviour
                     // Sets active gameobject for player menu
                     playerMenu.SetActive(true);
                     mainMenu.SetActive(false);
-                    optionsMenu.SetActive(false);
-                    helpMenu.SetActive(false);
-                    creditsMenu.SetActive(false);
-                    //exitMenu.SetActive(false);
-                    break;
-
-            case MenuStates.Options:
-                    // Sets active gameobject for options menu
-                    optionsMenu.SetActive(true);
-                    mainMenu.SetActive(false);
-                    playerMenu.SetActive(false);
                     helpMenu.SetActive(false);
                     creditsMenu.SetActive(false);
                     //exitMenu.SetActive(false);
@@ -103,7 +90,6 @@ public class MenuScript : MonoBehaviour
                     helpMenu.SetActive(true);
                     mainMenu.SetActive(false);
                     playerMenu.SetActive(false);
-                    optionsMenu.SetActive(false);
                     creditsMenu.SetActive(false);
                     //exitMenu.SetActive(false);
                 break;
@@ -113,22 +99,19 @@ public class MenuScript : MonoBehaviour
                     creditsMenu.SetActive(true);
                     mainMenu.SetActive(false);
                     playerMenu.SetActive(false);
-                    optionsMenu.SetActive(false);
                     helpMenu.SetActive(false);
                     //exitMenu.SetActive(false);
                 break;
 
-                //TODO: CHECK IF THIS IS CORRECT ?!
-                //case MenuStates.Exit:
-                //    //Exits game
-                //    //mainMenu.SetActive(false);
-                //    //playerMenu.SetActive(false);
-                //    //optionsMenu.SetActive(false);
-                //    //helpMenu.SetActive(false);
-                //    //creditsMenu.SetActive(false);
-                //    //exitMenu.SetActive(true);
-                //    Application.Quit();
-                //break;
+            case MenuStates.Exit:
+                //Exits game
+                //mainMenu.SetActive(false);
+                //playerMenu.SetActive(false);
+                //optionsMenu.SetActive(false);
+                //helpMenu.SetActive(false);
+                //creditsMenu.SetActive(false);
+                //exitMenu.SetActive(true);
+                break;
         }
     }
 
@@ -178,33 +161,6 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Interaction with options button.
-    /// Change current state to optionsMenu.
-    /// </summary>
-    public void OnOptions()
-    {
-        // Log activity
-        Debug.Log("You've clicked options.");
-
-        // Change menu state
-        currentState = MenuStates.Options;
-    }
-
-    /// <summary>
-    /// Interaction with windowed button in options.
-    /// Switch screen mode windowed or fullscreen.
-    /// NUR ALS BEISPIELFUNKTION!
-    /// </summary>
-    public void OnWindowedMode()
-    {
-        // Log activity
-        Debug.Log("You want to play in windowed mode.");
-
-        // Change screen resolution to windowed/fullscreen
-        //TODO: Add screen resolution modify here.
-        //NOTE: Kann auch irgendeine andere Funktion sein. Ist nur als Platzhalter da.
-    }
 
     /// <summary>
     /// Interaction with back button.
