@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        targetHeight = transform.position.y - EndHeight;
+        targetHeight = startPosition - EndHeight;
     }
 
     public void CloseDoor()
@@ -41,10 +41,8 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetHeight > transform.position.y)
             transform.Translate(0, (targetHeight - transform.position.y) / MoveSpeed, 0);
-        if (targetHeight < transform.position.y)
-            transform.Translate(0, (targetHeight + transform.position.y) / MoveSpeed, 0);
+
 
     }
 }
