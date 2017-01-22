@@ -22,9 +22,7 @@ public class CameraScript : MonoBehaviour {
         float desiredAngle = player.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
         //transform.position = transform.position + (player.transform.position - (rotation * offSet) - transform.position) / 10;
-        Debug.Log((player.transform.position - (rotation * offSet) - transform.position) * 100);
-        rigid.velocity = new Vector3(1,1,1);
-        Debug.Log(rigid.velocity);
+        rigid.AddForce((player.transform.position - (rotation * offSet) - transform.position) * 100);
         rigid.velocity = rigid.velocity / 2;
     }
 
