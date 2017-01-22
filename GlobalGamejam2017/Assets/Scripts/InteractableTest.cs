@@ -22,19 +22,7 @@ public class InteractableTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (soundWave == null)
-                FindSounds();
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "SoundWave")
-            Interact();
-    }
-
-    private void Interact()
-    {
-        Debug.Log("lol");
+        if (Input.GetKeyDown(KeyCode.Space))
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 80, 0));
     }
 }
