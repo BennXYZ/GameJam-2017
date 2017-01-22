@@ -38,7 +38,6 @@ public class PlayerHealth : MonoBehaviour {
 
     private void UpdateFallVibs()
     {
-        Debug.Log(rigid.velocity.y - fallSpeedVibes);
         if (-rigid.velocity.y > fallSpeedVibes)
             vibrationStrength = (-rigid.velocity.y - fallSpeedVibes) * 0.2f;
         if (vibrationStrength > 1)
